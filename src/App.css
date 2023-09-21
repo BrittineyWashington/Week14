@@ -10,3 +10,43 @@ body {
   white-space: nowrap;
   /* when the white-space is commented out the whole screen is filled with the movie images, no more scrolling unless up and down */
 }
+
+
+/* This section of Styling will add the transition effect tot he image container */
+/* this will "scale" it when the user hovers over(giving zoom effect) */
+.image-container {
+  position: relative; 
+  transition: transform 0.2s;
+}
+
+.image-container:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+/* this is initially hidden and increases in opacity when the user hovers over */
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%; 
+  transition: 0.5s ease;
+  opacity: 0;
+  bottom: 0;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
