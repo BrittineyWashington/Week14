@@ -8,7 +8,7 @@ const MovieList = (props) => {
         //each movie we'll display an image using Poster URL as the image source
         <div>
             {props.movies.map((movie, index) => (
-                <div className='image-container d-flex justify-content-start m-3'>
+                <div className='image-container d-inline-flex justify-content-start m-3'>
                     <img src={movie.Poster} alt='movie'></img>
                 </div>
             ))}

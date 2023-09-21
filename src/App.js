@@ -5,7 +5,9 @@ import MovieList from './components/MovieList';
 
 export default function App () { 
   const [movies, setMovies] = useState([
-  //   {
+  
+  //this is hardcoded movies from the API to test code
+    //   {
   //     "Title": "The Matrix",
   //     "Year": "1999",
   //     "imdbID": "tt0133093",
@@ -36,10 +38,11 @@ export default function App () {
   ]); 
   const [error, setError] = useState(false);
 
-
+//useEffect helps make sure the API call only happens the 1st time app loads
   useEffect(() => {
+    //this calls the API
     fetch('http://www.omdbapi.com/?s=matrix&apikey=e3f2d506', {
-      method: 'GET'
+      method: 'GET' //this will read the state of the API
     })
     .then((response) => {
       return response.json()
@@ -57,8 +60,8 @@ export default function App () {
 
   return (
     <div className="container-fluid movie-app">
-      <div className='row'>
-          <h1>Hi Princess, Movie Review!</h1>
+      <h1>Hi Princess, Movie Review!</h1>
+      <div className='row d-flex align-items-center mt-4 mb-4'>
           {error ? (
             <div className="text-danger">
                 We're sorry, but an unexpected error occurred{" "}
@@ -70,4 +73,4 @@ export default function App () {
   );
 };
 
-// export default App;
+
