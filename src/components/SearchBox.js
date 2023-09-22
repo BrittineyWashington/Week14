@@ -8,7 +8,7 @@ const SearchBox = (props) => {
     //this will render an input
     return (
         //when user types, calls a function it will updt value
-        <div className='col col-sm-4'>
+        <div className='col col-sm-3'>
             <input
                 className='form-control'
                 value={props.value}
