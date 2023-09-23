@@ -84,12 +84,14 @@ useEffect(() => {//passes the new searchValue to the getMovieRequest function
             </div>
           ): null}
           {/* added a new row that will hold our components */}
-        <MovieListHeading heading='Movies List' />
         <SearchBox 
             searchValue={searchValue} 
             setSearchValue={setSearchValue} 
         />
-      </div>
+        </div>
+        <div>
+        <MovieListHeading heading='Movies List' />
+        </div>
       <div className='row d-flex'>
         <MovieList 
             movies={movies} 
@@ -112,7 +114,7 @@ useEffect(() => {//passes the new searchValue to the getMovieRequest function
             favoriteComponent={RemoveFavorites} 
             />
       </div>
-  </div>
+    </div>
   );
 };
 
@@ -124,7 +126,7 @@ export default App;
 
 
 
-
+//line 
 
 
 

@@ -18,9 +18,21 @@ Review: A text review a user can leave on a movie.
 
 ReviewForm: a form at the bottom of a Movie component that allows users to leave reviews. When submitted, the review should be added to the movie. All this data can be stored in an array, no networking or database needed for this assignment.
 
+About Project: 
+Credits: 
+image header 
+<a href="https://www.freepik.com/free-vector/firlm-strip-with-camera-cinema-background-vector-illustration_26569063.htm">Image by starline</a> on Freepik
+
+Movie database- using Postman and OmdbAPI
 
 
-This was code that was preloaded by React  
+
+
+
+
+
+
+*****This was code that was preloaded by React  
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
