@@ -46,12 +46,40 @@ const getMovieRequest = async (searchValue) => {
       });
     }
 
+//this will make sure the API call only happens once
+//this method will make a all to the API & updts the state if we get results
+useEffect(() => {//passes the new searchValue to the getMovieRequest function 
+  //accepts parameter of searchValue
+  getMovieRequest(searchValue); 
+}, [searchValue]); //this is passed in using a template string
+
+//going to save to local storage now
+//we use the useEffect hook to retrieve favorites from local storage when app loads
+useEffect(() => {
+  //JSON.parse is used to convert a JSON object in text format to a JS object that can be used in a program
+  const movieFavorites = JSON.parse(
+    //localStorage is a window object property, meaning a global object and can interact with and manipulate the browser window
+    localStorage.getItem('react-movie-app-favorites')
+  );
+  if (movieFavorites) {
+    setFavorites(movieFavorites); 
+        }
+}, []); 
+
+//adding function that takes a list of items & will save to local storage against a key 
+//key = 'react-movie-app-favorites'
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('react-movie-app-favorites', JSON.stringify(items)); 
+  };
+ 
 //creating this function to accept a movie 
     //will take a copy of current favorite array, add new movie to it and save everything back into state
     //this will then be passed in as a prop(handleFavoriteClick) to our MovieList component
   const addFavoriteMovie = (movie) => {
     const newFavoriteList = [...favorites, movie]; //... is the spread operator
       setFavorites(newFavoriteList); 
+      //this will save to local storage when we add a favorite movie
+      saveToLocalStorage(newFavoriteList);
     }; 
 
 //creating this function to remove a given movie from our favorite state
@@ -59,15 +87,10 @@ const getMovieRequest = async (searchValue) => {
   const removeFavoriteMovie = (movie) => {
     const newFavoriteList = favorites.filter((favorite) => favorite.imdbID !== movie.imdbID);
 
-    setFavorites(newFavoriteList); 
+    setFavorites(newFavoriteList);
+    //saving to local storage when we remove a favorite movie
+    saveToLocalStorage(newFavoriteList);  
   };
-
-//this will make sure the API call only happens once
-//this method will make a all to the API & updts the state if we get results
-useEffect(() => {//passes the new searchValue to the getMovieRequest function 
-  //accepts parameter of searchValue
-  getMovieRequest(searchValue); 
-}, [searchValue]); //this is passed in using a template string
 
 //this is creating a state object to hold the list of movies 
 //we're going to AddFavorites to our MoveList below as a prop
